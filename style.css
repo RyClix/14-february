@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #ffebf2;
+}
+
+.heart {
+    position: absolute;
+    color: red;
+    font-size: 24px;
+    animation: fall linear infinite;
+    z-index: 1;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+.button-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2; /* Велике значення, щоб бути поверх сердець */
+}
+
+button {
+    padding: 25px 20px;
+    font-size: 20px;
+    color: #eeeeee;
+    background: #c72f62;
+    border: 1px solid #aa2a54;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.image-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.image-container img {
+    max-width: 80vw;
+    max-height: 80vh;
+    border-radius: 10px;
+}
+
+.image-container button {
+    right: -35px;
+    position: absolute;
+    padding: 10px;
+    font-size: 10px;
+}
+
+.show {
+    opacity: 1;
+    z-index: 3;
+}
+
+.button:active {
+   transform: scale(0.9);
+   transition: transform .3s;
+}
+
+@media (max-width: 450px) {
+    @keyframes fall {
+        to {
+            transform: translateY(100vh);
+            opacity: 0;
+        }
+    }
+}
